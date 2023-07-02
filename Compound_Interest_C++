@@ -1,0 +1,43 @@
+//  Code in C++ : -- Compound Interest
+
+#include<iostream>
+#include<math.h>
+
+//  #include<bits/stdc++.h>
+
+using namespace std;
+
+class amount
+{
+	protected:
+		int p;
+		double t,r;
+		double ci;
+	public:
+		amount()
+		{
+			cout<<"Enter Princpal :"<<endl;
+			cin>>p;
+			cout<<"Enter rate :"<<endl;
+			cin>>r;
+			cout<<"Rnter Time :"<<endl;
+			cin>>t;
+	}
+
+
+void result()
+{
+			ci=p*(pow((1+r/100),t)-1);
+			cout<<"The compound interest is : "<<ci;
+		}	
+		
+};
+
+
+int main()
+{
+	amount a;
+	a.result();
+	
+	return 0;
+}
