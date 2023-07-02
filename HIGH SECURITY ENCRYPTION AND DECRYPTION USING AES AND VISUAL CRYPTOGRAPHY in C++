@@ -1,0 +1,201 @@
+// My Assignment in C++ : HIGH SECURITY ENCRYPTION AND DECRYPTION USING AES AND VISUAL CRYPTOGRAPHY
+
+//#include<iostream>
+//#include<fstream>
+//#include<sstream>
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class registration
+{
+	protected:
+	int a,i=0;
+    string text,pass,name,password,sReg,user,word;
+    string arr[2];
+    public:
+    	void getRegi()
+    	{
+    cout << "     HIGH SECURITY ENCRYPTION AND DECRYPTION USING AES AND VISUAL CRYPTOGRAPHY   " << endl;
+
+    cout<<" ________________________________________________"<<endl;
+    cout<<"|               1.REGISTER                       |"<<endl;
+    cout<<"|               2.LOGIN                          |"<<endl;
+    cout<<"|______________ 3.END PROGRAM ___________________|"<<endl;
+
+    do{
+        cout<<endl<<endl;
+        cout<<"ENTER YOUR CHOICE:- ";
+        cin>>a;
+        switch(a)
+        {
+
+            case 1:
+                {
+                    cout<<" ____________________________"<<endl<<endl;
+                    cout<<"|--------REGISTER------------|"<<endl<<endl;
+                    cout<<"|____________________________|"<<endl<<endl;
+                    cout<<"Enter User Name :- "<<endl;
+                    cin>>name;
+                    cout<<"Create a Password :- "<<endl;
+                    cin>>password;
+                    cout<<"Enter your Registration Number:- "<<endl;
+                    cin>>sReg;
+
+                    ofstream fout;
+                    fout.open("C:\\myFile\\CA4.txt");
+                    if(fout.is_open()){
+                        fout<<name<<"\n";
+                        fout<<password;
+                    
+                        cout<<"_______________________REGISTRATION SUCCESSFULL____________________________"<<endl;
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    i=0;
+
+                    cout<<" ____________________________"<<endl<<endl;
+                    cout<<"|----------LOGIN-------------|"<<endl<<endl;
+                    cout<<"|____________________________|"<<endl<<endl;
+
+                    ifstream fin;
+                    fin.open("C:\\myFile\\CA4.txt");
+                    cout<<"Enter User Name:-"<<endl;
+                    cin>>user;
+                    cout<<"Enter the Password :-"<<endl;
+                    cin>>pass;
+
+                    if(fin.is_open())
+                    {
+                        while(!fin.eof())
+                        {
+                            while(getline(fin,text)){
+                                istringstream code(text);
+                                code>>word;
+                                arr[i]=word;
+                                 i++;
+                            }
+                            if(user==arr[0] && pass==arr[1])
+                            {
+                                cout<<"____________________LOG IN SUCCESSFUL_________________________"<<endl;
+
+                                cout<<" User Login Details: -- "<<endl;
+
+                                cout<<" USERNAME: "+ name<<endl;
+                                cout<<" PASSWORD: "+ pass<<endl;
+                                cout<<" REGISTRATION NO.: " + sReg<<endl;
+                            }
+                            else{
+                                cout<<endl;
+                                cout<<" INCORRECT CREDENTIALS "<<endl;
+                                cout<<"|       1.press 2 to login                 |"<<endl;
+                                cout<<"|       2.press 3  to change password      |"<<endl;
+                                break;
+                            }
+                        }
+                    }
+                        break;
+                    }
+                case 3:
+                    {
+                    cout<<"_____________THANYOU____________";
+                break;
+                    }
+
+                default:
+                    cout<<"PLEASE ENTER A VALID CHOICE";
+                }
+        }
+        
+       while(a!=2);
+    }
+
+};
+
+class secure
+{
+	protected:
+		char st[75];
+		int key;
+		public:
+			secure()
+			{
+				cout<<"---------------------------------------------------";
+				cout<<"---------------------------------------------------"<<endl;
+				cout<<"We are eligible to encrypt or decrypt a string data\n";
+				cout<<"\nEnter any string name :"<<endl;
+				cin>>st;
+				cout<<"Enter a symmentric key :"<<endl;
+				cin>>key;
+			}
+			void encrypt()
+			{
+				int key1,i;
+				cout<<"Enter a key which is same as primary key: "<<endl;
+				cin>>key1;
+				if(key1!=key)
+				{
+					cout<<"Enter a valid key "<<endl;
+				}
+				else
+				{
+					cout<<"Congratulation! you are able to encrypt any string"<<endl;
+					
+					for(i=0; (i<75 && st[i]!='\0');i++)
+					st[i]=st[i]+2;
+					
+					cout<<"Encrypt string: "<<st<<endl;
+				}
+			}
+			void decrypt()
+			{
+				int key2,i;
+				cout<<"Enter a key which is same as primary key: "<<endl;
+				cin>>key2;
+				if(key2!=key)
+				{
+					cout<<"Enter a valid key "<<endl;
+				}
+				else
+				{
+					cout<<"Congratulation! you are able to decrypt any string";
+					
+					for(i=0; (i<75 && st[i]!='\0');i++)
+					st[i]=st[i]-2;
+					
+					cout<<"Decrypt string: "<<st<<endl;
+				}
+			}
+};
+
+
+int main()
+{
+	int x;
+	registration r1;
+	r1.getRegi();
+	secure s1;
+while(1)
+{	
+	cout<<"\nPlease choose following options: \n 1. Encrypt \n2.Decrypt"<<endl;
+	cout<<"Enter you choise : --";
+	cin>>x;
+
+	switch(x)
+	{
+		case 1:
+			s1.encrypt();
+			break;
+		case 2:
+		    s1.decrypt();
+			break;
+			default:
+			
+			cout<<"Please enter invalid input !!!!"<<endl;	
+	}
+}
+	
+	return 0;
+}
