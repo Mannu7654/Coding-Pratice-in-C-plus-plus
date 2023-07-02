@@ -1,0 +1,48 @@
+
+//     Find roots of quadratic equation
+
+// #include<iostream>
+// #include<cmath>
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int a,b,c;
+	double D, rPart,iPart,x1,x2;
+	cout<<"Enter coefficient of a = "<<endl;
+	cin>>a;
+	cout<<"Enter coefficient of b = "<<endl;
+	cin>>b;
+	cout<<"Enter coefficient of c = "<<endl;
+	cin>>c;
+	
+	D= b*b - 4*a*c;
+	
+	cout<<"\n\nThe value of D is : "<<D<<endl<<endl;
+	
+	if(D>0)
+	{
+		x1=(-b + sqrt(D)) / (2*a);
+		x2=(-b - sqrt(D)) / (2*a);
+		cout<<"Roots are real and different"<<endl;
+		cout<<"\nx1= "<<x1<<endl;
+		cout<<"\nx2= "<<x2<<endl;
+	}
+	else if(D==0)
+	{
+		x1=x2=(-b+sqrt(D))/(2*a);
+		cout<<"\nRoots are same"<<endl;
+		cout<<"\nx1=x2 = "<<x1<<endl;
+	}
+	else
+	{
+		rPart=-b/(2*a);
+		iPart=sqrt(-D)/(2*a);
+		cout<<"\nRoots are complex and different"<<endl;
+		cout<<"x1= "<<rPart<<endl;
+		cout<<"x2= "<<iPart<<endl;
+	}
+	
+}
