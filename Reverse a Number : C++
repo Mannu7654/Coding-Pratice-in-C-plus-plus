@@ -1,0 +1,21 @@
+//   Reverse a Number
+
+#include<iostream>
+using namespace std;
+
+
+int main()
+{
+	int n,a,rev;
+	cout<<"Enter a positive number : "<<endl;
+	cin>>n;
+	
+	while(n>0)
+	{
+		a=n%10;
+		n=n/10;
+		rev=rev*10+a;
+	
+	}
+	cout<<"Reverse of a number : "<<rev<<endl;
+}
