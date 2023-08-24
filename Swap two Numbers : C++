@@ -1,0 +1,99 @@
+// Swaping the two number : ----  Using third variables
+
+#include<bits/stdc++.h>
+using namespace std;
+
+// 1st Method : -- Using 3rd variables
+void swapUsing3rdVariable(int a,int b)
+{	
+    int tmp;
+   	
+    tmp=a;
+	a=b;
+	b=tmp;
+	
+	cout<<"Swaping is done, then 1st number is : "<<a<<"\n and 2nd number is : "<<b<<endl;
+	
+}
+
+// 2nd Method : -- Without using 3rd variables
+
+void swapWithoutUsing3rdVariable(int a,int b)
+{
+	b=a+b;
+	a=b-a;
+	b=b-a;
+	
+	cout<<"Swaping is done, then 1st number is : "<<a<<"\n and 2nd number is : "<<b<<endl;
+	
+}
+
+// 3rd Method : -- Using inbuild function =>> swap()
+
+void swapUsingFunction(int a,int b)
+{
+	swap(a,b);
+	
+	cout<<"Swaping is done, then 1st number is : "<<a<<"\n and 2nd number is : "<<b<<endl;
+	
+}
+
+// 4th Method : -- Using bitwise XOR operator
+
+void swapUsingXOR(int a,int b)
+{
+	a= a ^ b;
+	b= a ^ b;
+	a= a ^ b;
+	
+	cout<<"Swaping is done, then 1st number is : "<<a<<"\n and 2nd number is : "<<b<<endl;
+	
+}
+
+// 5th Method : -- one line expression
+
+void swapInOneLine(int a,int b)
+{
+	a= (a * b)/ (b = a);
+	
+	// There are more expression to swap the number in one line expression : ---
+	//                                 1.   a = a + b – (b = a);
+	//                                 2.   a = a ^ b ^ (b = a);
+	//                                 3.   a= (a * b) / (b = a);
+	
+	cout<<"Swaping is done, then 1st number is : "<<a<<"\n and 2nd number is : "<<b<<endl;
+	
+}
+
+// 6th Method : -- Using multiplication and division
+
+void swapUsingMulDiv(int a,int b)
+{
+	a= a * b;
+	b= a / b;
+	a= a / b;
+	
+	cout<<"Swaping is done, then 1st number is : "<<a<<"\n and 2nd number is : "<<b<<endl;
+	
+} 
+
+int main()
+{
+	int a,b;
+	
+	cout<<"Enter two numbers : "<<endl;
+	cin>>a>>b;
+	
+//	swapUsing3rdVariable(a,b);
+
+//   swapWithoutUsing3rdVariable(a,b);
+
+//    swapUsingFunction(a,b);
+
+//    swapUsingXOR(a,b);
+
+//    swapInOneLine(a,b);
+
+    swapUsingMulDiv(a,b);
+	
+}
