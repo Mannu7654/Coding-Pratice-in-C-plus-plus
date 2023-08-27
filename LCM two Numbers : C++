@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Method 1 : -- Simple method
+
+int lcm(int a, int b)
+{
+	int p,q;
+	p=a;
+	q=b;
+	
+	while(p != q)
+	{
+		if(p < q)
+		{
+			p= p + a;
+		}
+		else
+		{
+			q= q + b;
+		}
+	}
+	
+	return p;
+	
+}
+
+// Method 2 : Using max() and min() function
+
+int lcmFunction(int a, int b)
+{
+	int higher= max(a,b);
+	int lowest= min(a,b);
+	
+	for(int i=higher; ; i +=higher)
+	{
+		if(i % lowest == 0)
+		{
+			return i;
+		}
+	 } 
+}
+
+int main()
+{
+	int m,n;
+	cout<<"Enter two numbers : "<<endl;
+	cin>>m>>n;
+	
+//	cout<<"LCM of numbers : "<<lcm(m,n);
+	
+	cout<<"LCM of numbers : "<<lcmFunction(m,n);
+}
