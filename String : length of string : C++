@@ -1,0 +1,69 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Method 1 : -- Using size() function
+
+int usingSize(string s)
+{
+	return s.size();
+	
+}
+
+// Method 2 : -- Using length() function
+
+int usingLength(string s)
+{
+	return s.length();
+	
+}
+
+// Method 3 : -- using strlen() function
+
+int usingSublen(string s)
+{
+	return strlen(s.c_str());
+	
+}
+
+// Method 4 : -- Using while loop
+
+int usingWhile(string s)
+{
+	int length=0;
+	while(s[length])
+	{
+		length++;
+	}
+	
+	return length;
+}
+
+// Method 5 : -- Using for loop
+
+int usingFor(string s)
+{
+	int length;
+	
+	for(length =0; s[length]; length++);
+	
+	return length;
+}
+
+int main()
+{
+	string str;
+	cout<<"Enter the string : "<<endl;
+	cin>>str;
+	
+//	cout<<"The length of string : "<<usingSize(str);
+	
+//	cout<<"The length of string : "<<usingLength(str);
+	
+//	cout<<"The length of string : "<<usingSublen(str);
+	
+//	cout<<"The length of string : "<<usingWhile(str);
+
+    cout<<"The length of string : "<<usingFor(str);
+	
+	return 0;
+}
