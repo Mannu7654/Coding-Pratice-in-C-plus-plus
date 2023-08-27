@@ -1,0 +1,71 @@
+// Count the occurrence of char in a given string
+
+#include<bits/stdc++.h>
+using namespace std;
+
+// Method 1 : -- SImple method
+
+int occuranceCount(string s, char c)
+{
+	int ans=0;
+	
+	for(int i=0;i<s.length();i++)
+	{
+		if(s[i] == c)
+		{
+			ans++;
+		}
+	}
+	
+	return ans;
+	
+}
+
+// Method 2 : -- Using function " count() ";
+
+int occuranceFunction(string s, char c)
+{
+	int ans= count(s.begin(), s.end(), c);
+	
+	return ans;
+}
+
+// Method 3 : -- Using Recursion
+
+int occuranceRecursion(string s, char c)
+{
+	if(s.length() == 0){
+		return 0;
+	}
+	
+	int count=0;
+	
+	if(s[0] == c){
+		count++;
+	}
+	
+	count += occuranceRecursion(s.substr(1), c);
+	// sunstr() -- Used to get the copy of the desired length or a part of the string
+	//            Means -- it extracts a substring from the given string
+	
+	return count;
+	
+}
+
+int main()
+{
+	string str;
+	char ch;
+	cout<<"Enter the string : "<<endl;
+	cin>>str;
+	cout<<"Enter character : "<<endl;
+	cin>>ch;
+	
+//	cout<<"The occurance is : "<<occuranceCount(str,ch);
+	
+//	cout<<"The occurance is : "<<occuranceFunction(str,ch);
+	
+	cout<<"The occurance is : "<<occuranceRecursion(str,ch);
+	
+	return 0;
+}
