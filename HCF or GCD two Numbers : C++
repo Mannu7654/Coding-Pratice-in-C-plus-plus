@@ -1,0 +1,103 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Method 1 : -- Simple method
+
+int hcf(int a, int b)
+{
+	while(a>0 && b>0)
+	{
+		if(a>b)
+		{
+			a= a%b;
+		}
+		else
+		{
+			b=b%a;
+		}
+	}
+	
+	if(a==0)
+	{
+		return b;
+	}
+	return a;
+}
+
+// Method 2: -- Using macro " __gcd(a,b) " to find hcf
+
+int hcfUsingMacros(int a, int b)
+{
+	cout<<"The hcf of two number : "<<__gcd(a,b);
+	
+}
+
+// Method 3 : -- Using Recursive function 
+
+int hcfRecursive(int a, int b)
+{
+	if(a==0){
+		return b;
+	}
+	
+	if(b==0){
+		return a;
+	}
+	
+	if(a==b){
+		return b;
+	}
+	
+	if(a>b){
+		return hcfRecursive(a-b, b);
+	}
+	
+	return hcfRecursive(a, b-a);
+	
+}
+
+// Method 4 : Naive Approach (Using minimum of two number)
+
+int hcfMin(int a, int b)
+{
+	int ans= min(a,b);   // predefined function min() -- It gives minimum of numbers
+	
+	while(ans >0)
+	{
+		if(a % ans ==0 && b % ans ==0)
+		{
+			break;
+		}
+		ans--;
+	}
+	
+	return ans;
+	
+}
+
+// Method 5: -- HCF in single line
+
+int hcfSingle(int a, int b)
+{
+	return b==0 ? a : hcfSingle(b, a%b);
+	
+}
+
+int main()
+{
+	int m,n;
+	cout<<"Enter two number : "<<endl;
+	cin>>m>>n;
+	
+//	cout<<"The hcf of two number : "<<hcf(m,n);
+
+//    hcfUsingMacros(m,n);
+    
+//    cout<<"The hcf of two number : "<<hcfRecursive(m,n);
+    
+//    cout<<"The hcf of two number : "<<hcfMin(m,n);
+    
+    cout<<"The hcf of two number : "<<hcfSingle(m,n);
+	
+	return 0;
+}
