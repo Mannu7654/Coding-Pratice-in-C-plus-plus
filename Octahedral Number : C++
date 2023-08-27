@@ -1,0 +1,22 @@
+// Calculate the n-octahedral number : -- to find the octaderal number by using formula 
+//             nth octahedral number = n * (2n^2 + 1) / 3
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int octahedralNumber(int n)
+{
+	return n * (2 * n * n +1) / 3;
+}
+
+int main()
+{
+	int num;
+	cout<<"Enter the number whose octahedral number, you want to find : "<<endl;
+	cin>>num;
+	
+	
+	cout<<octahedralNumber(num);
+	
+	return 0;
+}
