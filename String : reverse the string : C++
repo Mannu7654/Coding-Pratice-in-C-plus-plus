@@ -74,6 +74,25 @@ int reverseSwap(string s)
 	cout<< s;
 }
 
+// Method 7 : -- Swapping the string using while loop
+
+int reverseSwapWhile(string s)
+{
+	int length= s.length();
+	int n= length - 1;
+	int i=0;
+	
+	while(i <= n)
+	{
+		swap(s[i], s[n]);
+		n--;
+		i++;
+	}
+
+	cout<< s;
+}
+
+
 int main()
 {
 	string str;
@@ -90,7 +109,9 @@ int main()
 
 //    reverseTemp(str);
 
-    reverseSwap(str);
+//    reverseSwap(str);
+
+      reverseSwapWhile(str);
 	
 	return 0;
 }
