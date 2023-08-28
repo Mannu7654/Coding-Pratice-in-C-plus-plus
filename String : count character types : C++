@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int countCharType(string s)
+{
+	int cVowel=0, cConsonant=0, cSpecialChar=0, cDigit=0, cSpace=0;
+	
+	for(int i=0;i<s.length();i++)
+	{
+		char c= s[i];
+		
+		if((c >='a' && c <='z') || (c >='A' && c <='Z'))
+		{
+			c = tolower(c);
+			
+			if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u')
+			{
+				cVowel++;
+			}		
+			else
+			{
+				cConsonant++;
+			}	
+		}
+		else if(c >='0' && c <='9')
+		{
+			cDigit++;
+		}		
+		else if(c == ' ')
+		{
+		    cSpace++;
+    	}
+		else
+		{
+			cSpecialChar++;
+		}
+			
+	}
+	
+	cout<<"\nNo. of vowels in a string : "<<cVowel<<endl;
+	cout<<"\nNo. of consonants in a string : "<<cConsonant<<endl;
+	cout<<"\nNo. of digits in a string : "<<cDigit<<endl;
+	cout<<"\nNo. of special character in a string : "<<cSpecialChar<<endl;
+	cout<<"\nNo. of space in a string : "<<cSpace<<endl;
+
+}
+
+int main()
+{
+	char str[150];
+	cout<<"Enter the string : "<<endl;
+	gets(str);
+	
+	countCharType(str);
+	
+	return 0;
+}
