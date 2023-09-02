@@ -24,7 +24,24 @@ int hcf(int a, int b)
 	return a;
 }
 
-// Method 2: -- Using macro " __gcd(a,b) " to find hcf
+// Method 2: -- Simple method using for loop
+
+int hcfUsingFor(int a, int b)
+{
+	int gcd=1;
+	
+	for(int i=1;i<=a || i<=b;i++)
+	{
+		if(a%i==0 && b%i==0)
+		{
+			gcd=i;
+		}
+	}
+	
+	return gcd;
+}
+
+// Method 3: -- Using macro " __gcd(a,b) " to find hcf
 
 int hcfUsingMacros(int a, int b)
 {
@@ -32,7 +49,7 @@ int hcfUsingMacros(int a, int b)
 	
 }
 
-// Method 3 : -- Using Recursive function 
+// Method 4 : -- Using Recursive function 
 
 int hcfRecursive(int a, int b)
 {
@@ -56,7 +73,7 @@ int hcfRecursive(int a, int b)
 	
 }
 
-// Method 4 : Naive Approach (Using minimum of two number)
+// Method 5 : Naive Approach (Using minimum of two number)
 
 int hcfMin(int a, int b)
 {
@@ -75,12 +92,33 @@ int hcfMin(int a, int b)
 	
 }
 
-// Method 5: -- HCF in single line
+// Method 6: -- HCF in single line
 
 int hcfSingle(int a, int b)
 {
 	return b==0 ? a : hcfSingle(b, a%b);
 	
+}
+
+// Method 7: -- Euclidean Algorithm [Repeated Substraction]
+
+int hcfEuclidean(int a, int b)
+{
+	int gcd=1;
+	
+	while(a != b)
+	{
+		if(a>b)
+		{
+			a -=b;
+		}
+		else{
+			b -=a;
+		}
+	}
+	gcd=a=b;
+	
+	return gcd;
 }
 
 int main()
@@ -91,13 +129,17 @@ int main()
 	
 //	cout<<"The hcf of two number : "<<hcf(m,n);
 
+    cout<<"The hcf of two number : "<<hcfUsingFor(m,n);
+
 //    hcfUsingMacros(m,n);
     
 //    cout<<"The hcf of two number : "<<hcfRecursive(m,n);
     
 //    cout<<"The hcf of two number : "<<hcfMin(m,n);
     
-    cout<<"The hcf of two number : "<<hcfSingle(m,n);
+//    cout<<"The hcf of two number : "<<hcfSingle(m,n);
+    
+//    cout<<"The hcf of two number : "<<hcfEuclidean(m,n);
 	
 	return 0;
 }
