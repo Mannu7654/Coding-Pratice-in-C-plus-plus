@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Method 1 -- Normal method using iterator
+
+int largestUsingFor(int arr[], int n)
+{
+	int max= arr[0];
+	
+	for(int i=0;i<n;i++)
+	{
+		if(arr[i] > max)
+		{
+			max= arr[i];
+		}
+	}
+	
+	return max;
+}
+
+// Method 2 -- Using recursion
+
+int largestRecursion(int arr[], int n, int i)  // i -> Iterable of the program 
+{
+	if(i == n-1)
+	{
+		return arr[i];
+	}
+	
+	int maxRec= largestRecursion(arr,n,i+1);
+	
+	return max(maxRec, arr[i]);
+}
+
+// Method 3 -- Using library function
+
+int largestLibrary(int arr[], int n)
+{
+	return *max_element(arr, arr+n);
+}
+
+int main()
+{
+	int n,i=0;
+	cout<<"Enter the size of array : "<<endl;
+	cin>>n;
+	int arr[n];
+	for(i=0;i<n;i++)
+	{
+		cin>>arr[i];
+	}
+	
+//	cout<<"The largest element are : "<<largestUsingFor(arr,n);
+	
+//	cout<<"The largest element are : "<<largestRecursion(arr,n,i);
+	
+	cout<<"The largest element are : "<<largestLibrary(arr,n);
+	
+	return 0;
+}
