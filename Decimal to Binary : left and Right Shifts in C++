@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Convert decimal to binary
+
+void decimalToBinary(int n)
+{
+	int binNum[32];
+	int i=0;
+	
+	while(n>0)
+	{
+		binNum[i] = n%2;
+		n=n / 2;
+		i++;
+	}
+	
+	for(int j=i-1;j>=0;j--)
+	{
+		cout<<binNum[j];
+	}
+}
+
+
+int main()
+{
+	int num,choice,rightShift,leftShift;
+	cout<<"Enter the number : "<<endl;
+	cin>>num;
+	
+	cout<<"The binary of a given number is: ";
+	decimalToBinary(num);
+	
+	cout<<"\n\nSelect any option: --\n1.Left Shifts\n2.Right Shifts\n3.Exit"<<endl;
+	cout<<"\nEnter your choice : ";
+	cin>>choice;
+	
+	switch(choice)
+	{
+		case 1:
+			cout<<"Enter the bits, you want to shift: -- ";
+			cin>>leftShift;
+			
+			cout<<"\nThe output is : ";
+			decimalToBinary(num << leftShift);
+			cout<<endl;
+			break;
+		case 2:
+			cout<<"Enter the bits, you want to shift: -- ";
+			cin>>rightShift;
+			cout<<"\nThe output is : ";
+			decimalToBinary(num >> rightShift);
+			cout<<endl;
+			break;
+		case 3:
+			cout<<"oops!! You have successfully exit";
+			break;
+		default:
+			cout<<"Enter a valid choice";
+	}
+	
+	return 0;
+}
