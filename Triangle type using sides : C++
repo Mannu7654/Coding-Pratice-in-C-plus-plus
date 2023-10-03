@@ -1,0 +1,26 @@
+// Print the triangle type with the help of sides of triangle
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+    int a, b, c;  // Sides of triangle
+    cout << "Enter the lengths of the sides of the triangle: ";
+    cin >> a >> b >> c;
+
+    if(a == b && b == c) 
+	{
+        cout << "Equilateral";   // It having all sides are equals
+    }
+	else if(a == b || b == c || c == a)
+	{
+        cout << "Isosceles";  // it having only two sides are equal
+    }
+	else
+	{
+        cout << "Scalene";    // All sides having different sides (lengths).
+    }
+
+    return 0;
+}
