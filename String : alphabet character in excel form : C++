@@ -1,0 +1,44 @@
+// Print the alphabat character in excel form
+
+//Excel columns has a pattern like A, B, C, … ,Z, AA, AB, AC,…. ,AZ, BA, BB, … ZZ, AAA, AAB ….. etc.
+//In other words, column 1 is named as “A”, column 2 as “B”, column 27 as “AA” and so on.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class StringInExcelPattern{
+    public:
+    string colName (long long int n)
+    {
+        string cName;
+        while(n>0)
+        {
+            int r= n% 26;
+            if(r ==0)
+            {
+                cName += 'Z';
+                n= (n/26) - 1;
+            }
+            else
+            {
+                cName += (r -1) + 'A';
+                n= n/26;
+            }
+        }
+        reverse(cName.begin(), cName.end());
+        return cName;
+    }
+};
+
+int main()
+{
+    long long int n;
+    cout<<"Enter the number : "<<endl;
+    cin>>n;
+
+    StringInExcelPattern se;
+    cout<<"The alphabat character in excel form: "<<se.colName(n);
+
+    return 0;
+}
