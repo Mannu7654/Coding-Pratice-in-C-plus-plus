@@ -1,0 +1,30 @@
+// Count the number of 1's in the binary representation of an integer
+
+#include <bits/stdc++.h> 
+using namespace std;
+
+int countBits(int N)
+{
+    int count = 0;
+    while (N > 0)
+	{
+        if (N & 1)
+		{
+            count++;
+        }
+        
+        N >>= 1;
+    }
+    
+    return count;
+    
+}
+
+int main()
+{
+    int n;
+    cout<<"Enter the number: -- ";
+    cin >> n;
+    cout<<"\nThe number of 1's in the binary representaion of entered integer: ---> "<<countBits(n);
+    return 0;
+}
