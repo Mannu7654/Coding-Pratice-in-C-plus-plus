@@ -1,0 +1,38 @@
+// You are given two strings of equal lengths, s1 and s2. The task is to check if s2 is a rotated version of the string s1.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+bool rotations(string s1, string s2)
+{
+	if (s1.length() != s2.length())
+	{
+        return false;
+    }
+
+    string temp = s1 + s1;
+    
+    return (temp.find(s2) != -1);
+    
+}
+
+
+int main()
+{
+	string s1 = "mightandmagic";
+	
+    string s2 = "andmagicmigth";
+
+    if(rotations(s1, s2))
+	{
+        cout<<"Strings are rotations of each other."<<endl;
+    }
+	else
+	{
+        cout<<"Strings are not rotations of each other."<<endl;
+    }
+
+    return 0;
+    
+}
