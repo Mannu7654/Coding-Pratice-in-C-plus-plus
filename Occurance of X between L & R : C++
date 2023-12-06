@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class OccuranceOfX{
+  public:
+    int countX(int L, int R, int X) {
+        int count = 0;
+        
+        for (int i = L + 1; i < R; i++) {
+            int num = i;
+            while (num > 0) {
+                if (num % 10 == X) {
+                    count++;
+                }
+                num /= 10;
+            }
+        }
+        return count;
+    }
+};
+
+int main() {
+    int L, R, X;
+    cin >> L >> R >> X;
+
+    OccuranceOfX ob;
+
+    int ans = ob.countX(L, R, X);
+
+    cout << ans << "\n";
+    
+}
