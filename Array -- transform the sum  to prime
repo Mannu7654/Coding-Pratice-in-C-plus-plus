@@ -1,0 +1,64 @@
+// Find the minimum non-negative number to be inserted in array, so that sum of all elements of array becomes prime.
+// 1. Find the sum of inserted array elements
+// 2. Check the sum of array elements
+// 3. Print the inserted element into array to becomes prime.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+    public:
+    int minNumber(int arr[],int N)
+    {
+        int sum=0;
+        for(int i=0;i<N;i++)
+        {
+            sum += arr[i];
+        }
+        
+        for(int i=0;i<=sum+1;i++)
+        {
+            if(isPrime(sum+i)){
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    // Check the prime condition
+    bool isPrime(int n)
+    {
+        if(n<=1)
+        {
+            return false;
+        }
+        
+        for(int i=2;i<=sqrt(n);i++)
+        {
+            if(n%i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+int main()
+{
+    int n;
+    cout<<"How many element you want to inserted : --> ";
+    cin>>n;
+    int arr[n];
+    
+    cout<<"Enter Array element : --> "<<endl;
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
+        
+    Solution obj;
+    cout<<"Added element to become sum as prime : --> "<< obj.minNumber(arr, n)<<endl;
+
+    return 0;
+}
