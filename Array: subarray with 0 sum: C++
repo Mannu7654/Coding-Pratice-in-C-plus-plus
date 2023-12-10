@@ -1,0 +1,60 @@
+// A C++ program to find if there is a zero sum
+
+// Given an array of integers. Find if there is a subarray (of size at-least one) with 0 sum.
+// You just need to return true/false depending upon whether there is a subarray present with 0-sum or not.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class SubArray{
+    public:
+    //Function to check whether there is a subarray present with 0-sum or not.
+    bool subArrayExists(int arr[], int n)
+    {
+        int sum=0;
+        unordered_set<int> sumArr;
+        
+        for(int i=0;i<n;i++)
+        {
+            sum += arr[i];
+            
+            if(sumArr.find(sum) != sumArr.end())
+            {
+                return true;
+            }
+            
+            if(sum == 0)
+            {
+                return true;
+            }
+            sumArr.insert(sum);
+        }
+        return false;
+    }
+};
+
+int main()
+{
+	int n;
+	cout<<"The number of element in the array: --> ";
+	cin>>n;
+	int arr[n];
+	
+	cout<<"\nThe array elements are: --> "<<endl;
+	for(int i=0;i<n;i++){
+	    cin>>arr[i];
+	}
+	   
+	SubArray s1;
+	
+	if (s1.subArrayExists(arr, n))
+	{
+	    cout<<"\nThe subArray is existed."<<endl;
+	}
+	else{
+	    cout<<"\nThe subArray is not existed."<<endl;
+	}
+
+	return 0;
+}
