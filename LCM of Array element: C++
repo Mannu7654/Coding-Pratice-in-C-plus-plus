@@ -1,0 +1,25 @@
+// Find the lcm of two or more elements. i.e., all elements are store in array. 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int hcf(int a, int b){
+    return b==0? a : hcf(b, a%b);
+}
+
+int lcm(int arr[0], int n){
+    int l=arr[0];
+    for(int i=1;i<n;i++){
+        l=(l / hcf(l, arr[i])) * arr[i];
+    }
+    return l;
+}
+
+int main(){
+    int arr[]={6,8,4,3,2,18,15};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    
+    cout<<"LCM of array element is: "<<lcm(arr,n);
+    
+    return 0;
+}
